@@ -7,7 +7,7 @@ const firmRoutes=require('./routes/firmRoutes')
 const productRoutes = require('./routes/productRoutes');
 
 const app=express()
-const PORT=4000;
+const PORT= process.env.PORT||4000;
 
 
 dotEnv.config();
@@ -29,7 +29,7 @@ app.use('/uploads',express.static('uploads'));
 app.listen(PORT,()=>{
     console.log(`App started and running on port ${PORT}`)
 })
-app.use('/home',(req,res)=>{
+app.use('/',(req,res)=>{
     res.send("<h1>Welcome to the QuickCrave</h1>");
 
 })
